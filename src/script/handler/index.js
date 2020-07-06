@@ -10,7 +10,7 @@ import button from './button';
 import script from './script';
 import pseudo from './pseudo';
 import before from './before';
-import handlerDiv from './div'
+import handlerDiv from './div';
 
 export {
   a,
@@ -25,5 +25,5 @@ export {
   script,
   pseudo,
   before,
-  handlerDiv
+  handlerDiv,
 };

@@ -2,7 +2,7 @@ const getSkeleton = require('../src/index');
 
 getSkeleton({
   pageName: 'baidu',
-  pageUrl: 'http://10.8.16.145:8080/parent-wx-h5Shop-my.html?id=5db95977947acb2e6d0c5a2d&fromtype=zheguangtestdddd&role=puppeteer',
+  pageUrl: 'http://10.8.16.145:8080/parent-wx-h5Shop-list.html?id=5db95977947acb2e6d0c5a2d&fromtype=zheguangtestdddd&code=061qlt7j29zDpB0wE56j2HXe7j2qlt7j&state=parent&role=puppeteer',
   openRepeatList: true,
   device: 'iPhone X', // 为空则使用默认 PC 页面打开
   minGrayBlockWidth: 20,
@@ -25,4 +25,4 @@ getSkeleton({
   // }],
 }).then(result => {
   // console.log(result.html)
-})
+});

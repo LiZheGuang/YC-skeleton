@@ -159,7 +159,7 @@ function handleTextStyle(ele, width) {
       )`,
     backgroundSize: `100% ${px2rem(parseInt(lineHeight) * 1.1)}`,
     position,
-    borderRadius: '24px'
+    borderRadius: '12px',
   });
 
   // add white mask

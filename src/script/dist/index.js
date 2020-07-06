@@ -81,13 +81,15 @@
   const MAIN_COLOR = '#EEEEEE';
   const MAIN_COLOR_RGB = 'rgb(238, 238, 238)';
 
+
+  const MAIN_COLOR_IMAGE = '#dedede';
+
+
   // Pseudo-class style
   const PSEUDO_CLASS = 'sk-pseudo';
 
   // button style
   const BUTTON_CLASS = 'sk-button';
-
-  const MAIN_DIV ='sk-div';
 
   // Transparent style
   const TRANSPARENT_CLASS = 'sk-transparent';
@@ -305,8 +307,7 @@
       )`,
       backgroundSize: `100% ${px2rem(parseInt(lineHeight) * 1.1)}`,
       position,
-      borderRadius: '24px'
-
+      borderRadius: '12px',
     });
 
     // add white mask
@@ -494,7 +495,7 @@
     // The background image is changed to the main color
     if (ComputedStyle.backgroundImage !== 'none') {
       node.style.backgroundImage = 'none';
-      node.style.background = MAIN_COLOR;
+      node.style.background = MAIN_COLOR_IMAGE;
     }
 
     // The Shadow is changed to the main color
@@ -516,18 +517,6 @@
       node.style.color = 'transparent';
     }
   }
-
-  function handlerDiv(node) {
-      if (!node.tagName) return;
-    
-      node.classList.add(MAIN_DIV);
-    
-      let { backgroundColor: bgColor, width, height } = getComputedStyle(node);
-    
-      bgColor = bgColor === '#ebebeb' ? MAIN_COLOR : bgColor;
-    
-      node.style.backgroundColor = 'rgb(97, 64, 64)';
-    }
 
   window.AwesomeSkeleton = {
     // Entry function
@@ -680,23 +669,23 @@
       // Handling elements that are ignored by user tags -> End
       const ignore = hasAttr(node, 'data-skeleton-ignore') || node.tagName === 'STYLE';
       if (ignore) return;
-
+      const tagName = node.tagName && node.tagName.toUpperCase();
+      const tagId = node.id;
+      const reg = RegExp(/header-box/);
+      const tagClass = reg.test(node.className);
       // Preprocessing some styles
       beforeHandler(node, this.options);
 
       // Preprocessing pseudo-class style
       pseudoHandler(node, this.options);
-
-      const tagName = node.tagName && node.tagName.toUpperCase();
-      const tagId= node.id;
       const isBtn = tagName && (tagName === 'BUTTON' || /(btn)|(button)/g.test(node.getAttribute('class')));
-      console.log(tagId);
       let isCompleted = false;
-      if(!tagId){
+      if (!tagId) {
+        console.log(node.className + '下作的判断处理');
         switch (tagName) {
-          case 'div':
-            handlerDiv(node);
-            break;
+          // case 'DIV':
+          //   handler.handlerDiv(node);
+          //   break;
           case 'SCRIPT':
             scriptHandler(node);
             break;
@@ -721,7 +710,7 @@
             aHandler(node);
             break;
         }
-    
+
       }
 
       if (isBtn) {

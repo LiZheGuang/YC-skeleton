@@ -1,6 +1,7 @@
 import {
   MAIN_COLOR,
   MAIN_COLOR_RGB,
+  MAIN_COLOR_IMAGE,
 } from '../constants';
 
 import {
@@ -29,7 +30,7 @@ function beforeHandler(node, options) {
   // The background image is changed to the main color
   if (ComputedStyle.backgroundImage !== 'none') {
     node.style.backgroundImage = 'none';
-    node.style.background = MAIN_COLOR;
+    node.style.background = MAIN_COLOR_IMAGE;
   }
 
   // The Shadow is changed to the main color

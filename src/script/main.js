@@ -162,23 +162,23 @@ window.AwesomeSkeleton = {
     // Handling elements that are ignored by user tags -> End
     const ignore = hasAttr(node, 'data-skeleton-ignore') || node.tagName === 'STYLE';
     if (ignore) return;
-
+    const tagName = node.tagName && node.tagName.toUpperCase();
+    const tagId = node.id;
+    const reg = RegExp(/header-box/);
+    const tagClass = reg.test(node.className);
     // Preprocessing some styles
     handler.before(node, this.options);
 
     // Preprocessing pseudo-class style
     handler.pseudo(node, this.options);
-
-    const tagName = node.tagName && node.tagName.toUpperCase();
-    const tagId= node.id
     const isBtn = tagName && (tagName === 'BUTTON' || /(btn)|(button)/g.test(node.getAttribute('class')));
-    console.log(tagId)
     let isCompleted = false;
-    if(!tagId){
+    if (!tagId) {
+      console.log(node.className + '下作的判断处理');
       switch (tagName) {
-        case 'div':
-          handler.handlerDiv(node);
-          break;
+        // case 'DIV':
+        //   handler.handlerDiv(node);
+        //   break;
         case 'SCRIPT':
           handler.script(node);
           break;
@@ -206,7 +206,7 @@ window.AwesomeSkeleton = {
         default:
           break;
       }
-  
+
     }
 
     if (isBtn) {

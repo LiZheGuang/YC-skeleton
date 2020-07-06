@@ -2,13 +2,17 @@
 export const MAIN_COLOR = '#EEEEEE';
 export const MAIN_COLOR_RGB = 'rgb(238, 238, 238)';
 
+
+export const MAIN_COLOR_IMAGE = '#dedede';
+
+
 // Pseudo-class style
 export const PSEUDO_CLASS = 'sk-pseudo';
 
 // button style
 export const BUTTON_CLASS = 'sk-button';
 
-export const MAIN_DIV ='sk-div'
+export const MAIN_DIV = 'sk-div';
 
 // Transparent style
 export const TRANSPARENT_CLASS = 'sk-transparent';
