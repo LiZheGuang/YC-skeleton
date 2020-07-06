@@ -1,10 +1,20 @@
-const getSkeleton = require('../src/index');
+const getSkeleton = require("../src/index");
+const spliPageName = (url) => {
+  return new URL(url).pathname
+    .split("/")
+    .pop()
+    .replace(/\.html/, "");
+};
 
+const skeletonObj = {
+  pageUrl:
+    "http://10.8.16.145:8080/parent-wx-h5Shop-my.html?id=5db95977947acb2e6d0c5a2d&fromtype=zheguangtestdddd&role=puppeteer",
+};
 getSkeleton({
-  pageName: 'baidu',
-  pageUrl: 'http://10.8.16.145:8080/parent-wx-h5Shop-list.html?id=5db95977947acb2e6d0c5a2d&fromtype=zheguangtestdddd&code=061qlt7j29zDpB0wE56j2HXe7j2qlt7j&state=parent&role=puppeteer',
+  pageName: spliPageName(skeletonObj.pageUrl),
+  pageUrl: skeletonObj.pageUrl,
   openRepeatList: true,
-  device: 'iPhone X', // 为空则使用默认 PC 页面打开
+  device: "iPhone 6", // 为空则使用默认 PC 页面打开
   minGrayBlockWidth: 20,
   minGrayPseudoWidth: 10,
   debug: true,
@@ -23,6 +33,6 @@ getSkeleton({
   //   "value": "yyyyyyyyy",
   //   "id": 2
   // }],
-}).then(result => {
+}).then((result) => {
   // console.log(result.html)
 });

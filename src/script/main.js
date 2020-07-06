@@ -174,7 +174,6 @@ window.AwesomeSkeleton = {
     const isBtn = tagName && (tagName === 'BUTTON' || /(btn)|(button)/g.test(node.getAttribute('class')));
     let isCompleted = false;
     if (!tagId) {
-      console.log(node.className + '下作的判断处理');
       switch (tagName) {
         // case 'DIV':
         //   handler.handlerDiv(node);

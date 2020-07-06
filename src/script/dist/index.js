@@ -508,6 +508,8 @@
     // The border is changed to the main color
     if (ComputedStyle.borderColor) {
       node.style.borderColor = MAIN_COLOR;
+      node.style.backgroundColor = 'transparent';
+
     }
 
     // Set the background color of the user class
@@ -681,7 +683,6 @@
       const isBtn = tagName && (tagName === 'BUTTON' || /(btn)|(button)/g.test(node.getAttribute('class')));
       let isCompleted = false;
       if (!tagId) {
-        console.log(node.className + '下作的判断处理');
         switch (tagName) {
           // case 'DIV':
           //   handler.handlerDiv(node);
