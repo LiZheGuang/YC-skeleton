@@ -1,6 +1,7 @@
 import {
   MAIN_COLOR,
   SMALLEST_BASE64,
+  MAIN_COLOR_IMAGE,
 } from '../constants';
 
 import {

@@ -8,11 +8,11 @@ const spliPageName = (url) => {
 
 const skeletonObj = {
   pageUrl:
-    "http://10.8.16.145:8080/parent-wx-h5Shop-my.html?id=5db95977947acb2e6d0c5a2d&fromtype=zheguangtestdddd&role=puppeteer",
+    "http://10.8.16.145:8080/parent-wx-h5Shop-shopShow.html?actId=5e796b01cce13f039dca4ee5",
 };
 getSkeleton({
   pageName: spliPageName(skeletonObj.pageUrl),
-  pageUrl: skeletonObj.pageUrl,
+  pageUrl: `${skeletonObj.pageUrl}&role=puppeteer`,
   openRepeatList: true,
   device: "iPhone 6", // 为空则使用默认 PC 页面打开
   minGrayBlockWidth: 20,

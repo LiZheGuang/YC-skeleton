@@ -159,7 +159,7 @@ function handleTextStyle(ele, width) {
       )`,
     backgroundSize: `100% ${px2rem(parseInt(lineHeight) * 1.1)}`,
     position,
-    borderRadius: '12px',
+    // borderRadius: '12px',
   });
 
   // add white mask
@@ -182,8 +182,11 @@ function handleTextStyle(ele, width) {
       case 'right':
         ele.style.backgroundPositionX = '100%';
         break;
-      default: // center
+      case 'center':
         ele.style.backgroundPositionX = '50%';
+        break;
+      default: // center
+        ele.style.backgroundPositionX = '0%';
         break;
     }
   }
