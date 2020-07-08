@@ -1,57 +1,62 @@
-const fs = require('fs');
-const path = require('path');
-const minify = require('html-minifier').minify;
+const fs = require("fs");
+const path = require("path");
+const minify = require("html-minifier").minify;
 
 // Inject the skeleton into the template
 const insertSkeleton = (skeletonImageBase64, options) => {
-  const skeletonHTMLPath = path.join(options.outputPath, `skeleton-${options.pageName}.html`);
+  const skeletonHTMLPath = path.join(
+    options.outputPath,
+    `skeleton-${options.pageName}.html`
+  );
 
   if (!skeletonImageBase64) {
-    console.warn('The skeleton has not been generated yet');
+    console.warn("The skeleton has not been generated yet");
     return false;
   }
 
-  const skeletonClass = 'skeleton-remove-after-first-request';
+  const skeletonClass = "skeleton-remove-after-first-request";
 
   const content = `
+    <html>
+    <head>
     <style>
-      @keyframes flush {
-        0% {
-          left: -100%;
-        }
-        50% {
-          left: 0;
-        }
-        100% {
-          left: 100%;
-        }
-      }
+      // @keyframes flush {
+      //   to {
+      //     opacity: 1;
+      // }
+      //   from {
+      //       opacity: .5;
+      //   }
+      // }
     </style>
+    </head>
+    <body>
     <div class="${skeletonClass}" style="
-      animation: flush 2s linear infinite;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 100%;
-      z-index: 9999;
-      background: linear-gradient(to left,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, .85) 50%,
-        rgba(255, 255, 255, 0) 100%);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 9999;
     "></div>
     <div class="${skeletonClass}" style="
       position: absolute;
+      animation: flush 2s linear infinite;
+      animation-direction:alternate;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
       z-index: 9998;
       background-repeat: no-repeat !important;
-      background-size: ${options.device ? '100% auto' : '1920px 1080px'} !important;
+      background-size: ${
+        options.device ? "100% auto" : "1920px 1080px"
+      } !important;
       background-image: url(${skeletonImageBase64}) !important;
       background-color: #FFFFFF !important;
       background-position: center 0 !important;
     "></div>
+    </body>
+
     <script class="${skeletonClass}">
       // Define hooks
       window.SKELETON = {
@@ -66,10 +71,11 @@ const insertSkeleton = (skeletonImageBase64, options) => {
       // destroy after the onload event by default
       window.addEventListener('load', function(){
         setTimeout(function(){
-          window.SKELETON && SKELETON.destroy()
+          // window.SKELETON && SKELETON.destroy()
         }, 0);
       });
-    </script>`;
+    </script>
+    </html>`;
 
   // Code compression
   const minifyContent = minify(content, {
@@ -79,7 +85,7 @@ const insertSkeleton = (skeletonImageBase64, options) => {
   });
 
   // Write file
-  fs.writeFileSync(skeletonHTMLPath, minifyContent, 'utf8', function(err) {
+  fs.writeFileSync(skeletonHTMLPath, minifyContent, "utf8", function (err) {
     if (err) return console.error(err);
   });
 

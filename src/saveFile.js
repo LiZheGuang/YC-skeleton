@@ -17,14 +17,14 @@ const saveScreenShot = async (page, options) => {
 
   const skeletonImageBase64 = base64Img.base64Sync(screenshotPath);
 
-  const skeletonBase64Path = options.outputPath ? path.join(options.outputPath, './base64-' + options.pageName + '.txt') : null;
-  if (skeletonBase64Path) {
-    // Write the skeleton base64 png to a txt file
-    fs.writeFileSync(skeletonBase64Path, skeletonImageBase64, err => {
-      if (err) throw err;
-      console.log(`The base64-${options.pageName}.txt file has been saved in path '${options.outputPath}' !`);
-    });
-  }
+  // const skeletonBase64Path = options.outputPath ? path.join(options.outputPath, './base64-' + options.pageName + '.txt') : null;
+  // if (skeletonBase64Path) {
+  //   // Write the skeleton base64 png to a txt file
+  //   fs.writeFileSync(skeletonBase64Path, skeletonImageBase64, err => {
+  //     if (err) throw err;
+  //     console.log(`The base64-${options.pageName}.txt file has been saved in path '${options.outputPath}' !`);
+  //   });
+  // }
   return skeletonImageBase64;
 };
 

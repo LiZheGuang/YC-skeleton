@@ -676,7 +676,8 @@
       if (ignore) return;
       const tagName = node.tagName && node.tagName.toUpperCase();
       const tagId = node.id;
-      const reg = RegExp(/header-box/);
+      const firstClass = this.options.firstClass;
+      // const reg = RegExp(/header-box/);
       const tagClass = reg.test(node.className);
       // Preprocessing some styles
       beforeHandler(node, this.options);
