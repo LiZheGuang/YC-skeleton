@@ -167,6 +167,7 @@ function handleTextStyle(ele, width) {
     addTextMask(ele, Object.assign(JSON.parse(JSON.stringify(comStyle)), {
       lineHeight,
     }));
+    ele.innerHTML = ' '
   } else {
     const textWidth = getTextWidth(ele, {
       fontSize,

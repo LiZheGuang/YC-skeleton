@@ -183,7 +183,6 @@ window.AwesomeSkeleton = {
       if(tagName == 'IMG'){
         node.style.display = 'none';
       }
-      console.log(filterAs)
       return 
     }
 

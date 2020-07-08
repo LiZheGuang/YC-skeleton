@@ -1,4 +1,4 @@
-# awesome-skeleton
+# YC-skeleton
 
 [![NPM version][npm-image]][npm-url]
 [![Build status][travis-image]][travis-url]
@@ -9,14 +9,11 @@
 [English](./README.md) | 简体中文
 
 
-<!-- GITCONTRIBUTOR_START -->
+## reference
 
-## Contributors
+> awesome-skeleton 
 
-|[<img src="https://avatars1.githubusercontent.com/u/11460601?v=4" width="100px;"/><br/><sub><b>zivyangll</b></sub>](https://github.com/zivyangll)<br/>|
-| :---: |
 
-<!-- GITCONTRIBUTOR_END -->
 
 ## 效果
 

@@ -78,11 +78,11 @@
   };
 
   // Skeleton main color
-  const MAIN_COLOR = '#EEEEEE';
+  const MAIN_COLOR = '#ebebeb';
   const MAIN_COLOR_RGB = 'rgb(238, 238, 238)';
 
 
-  const MAIN_COLOR_IMAGE = '#dedede';
+  const MAIN_COLOR_IMAGE = '#ebebeb';
 
 
   // Pseudo-class style
@@ -315,6 +315,7 @@
       addTextMask(ele, Object.assign(JSON.parse(JSON.stringify(comStyle)), {
         lineHeight,
       }));
+      ele.innerHTML = ' ';
     } else {
       const textWidth = getTextWidth(ele, {
         fontSize,
@@ -695,7 +696,6 @@
         if(tagName == 'IMG'){
           node.style.display = 'none';
         }
-        console.log(filterAs);
         return 
       }
 
