@@ -47,7 +47,7 @@ skeletonObj.map((item) => {
     device: "iPhone 6", // 为空则使用默认 PC 页面打开
     minGrayBlockWidth: 20,
     minGrayPseudoWidth: 10,
-    debug: flase,
+    debug: false,
     debugTime: 3000,
     filterClass: item.filterClass,
     // outputPath:'./ggname'//写入你要生成的目录在哪个项目里
