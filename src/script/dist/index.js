@@ -495,7 +495,6 @@
     }
 
     const ComputedStyle = getComputedStyle(node);
-
     // The background image is changed to the main color
     if (ComputedStyle.backgroundImage !== 'none') {
       node.style.backgroundImage = 'none';
@@ -510,10 +509,10 @@
     }
 
     // The border is changed to the main color
+
     if (ComputedStyle.borderColor) {
       node.style.borderColor = MAIN_COLOR;
       node.style.backgroundColor = 'transparent';
-
     }
 
     // Set the background color of the user class
@@ -679,20 +678,31 @@
       const tagId = node.id;
       const filterClass = this.options.filterClass;
       const filterAs = [];
-       filterClass.map(filter =>{
-        const reg = RegExp(filter);
-        const tagClass = reg.test(node.className);
-        if(tagClass === true){
-          filterAs.push(filter);
+      tagName &&  filterClass.map(filter =>{
+        const isClassName = document.querySelector(node.tagName.toLocaleLowerCase()).classList.contains( typeof filter === 'object' ? filter.class : filter);
+        if(isClassName == true){
+          filterAs.push(typeof filter === 'object' ? filter.class : filter);
         }
       });
       // console.log(node.className === 'content')
       // Preprocessing some styles
       beforeHandler(node, this.options);
       if(filterAs.length > 0){
+        console.log(typeof filterClass);
+        // 此处做成自定义传递参数来进行渲染
+        if(typeof filterClass == 'object'){
+          filterClass.map(filter =>{
+            const thePresent = document.querySelector(node.tagName.toLocaleLowerCase()).classList.contains(filter.class);
+            if(thePresent == true){
+              node.style.backgroundColor = filter.color;
+              node.style.color = filter.color;
+            }
+          });
+        }else {
+          node.style.backgroundColor = 'transparent';
+          node.style.color = 'transparent';
+        }
 
-        node.style.backgroundColor = 'transparent';
-        node.style.color = 'transparent';
         if(tagName == 'IMG'){
           node.style.display = 'none';
         }

@@ -26,7 +26,6 @@ function beforeHandler(node, options) {
   }
 
   const ComputedStyle = getComputedStyle(node);
-
   // The background image is changed to the main color
   if (ComputedStyle.backgroundImage !== 'none') {
     node.style.backgroundImage = 'none';
@@ -41,10 +40,10 @@ function beforeHandler(node, options) {
   }
 
   // The border is changed to the main color
+
   if (ComputedStyle.borderColor) {
     node.style.borderColor = MAIN_COLOR;
     node.style.backgroundColor = 'transparent';
-
   }
 
   // Set the background color of the user class

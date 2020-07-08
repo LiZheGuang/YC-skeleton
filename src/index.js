@@ -51,7 +51,7 @@ const getSkeleton = async function(options) {
   const result = insertSkeleton(skeletonImageBase64, options);
 
   // Close the browser
-  await browser.close();
+  // await browser.close();
 
   return result;
 };
