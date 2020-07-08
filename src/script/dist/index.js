@@ -676,11 +676,28 @@
       if (ignore) return;
       const tagName = node.tagName && node.tagName.toUpperCase();
       const tagId = node.id;
-      const firstClass = this.options.firstClass;
-      // const reg = RegExp(/header-box/);
-      const tagClass = reg.test(node.className);
+      const filterClass = this.options.filterClass;
+      const filterAs = [];
+       filterClass.map(filter =>{
+        const reg = RegExp(filter);
+        const tagClass = reg.test(node.className);
+        if(tagClass === true){
+          filterAs.push(filter);
+        }
+      });
+      // console.log(node.className === 'content')
       // Preprocessing some styles
       beforeHandler(node, this.options);
+      if(filterAs.length > 0){
+
+        node.style.backgroundColor = 'transparent';
+        node.style.color = 'transparent';
+        if(tagName == 'IMG'){
+          node.style.display = 'none';
+        }
+        console.log(filterAs);
+        return 
+      }
 
       // Preprocessing pseudo-class style
       pseudoHandler(node, this.options);
