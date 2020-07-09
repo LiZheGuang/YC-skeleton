@@ -1,5 +1,5 @@
 {
-  "name": "awesome-skeleton",
+  "name": "yc-skeleton",
   "version": "0.1.3",
   "description": "骨架图生成器",
   "author": "",
@@ -41,6 +41,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:kaola-fed/awesome-skeleton.git"
+    "url": "git@github.com:LiZheGuang/YC-skeleton.git"
   }
 }

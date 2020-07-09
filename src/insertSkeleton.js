@@ -20,14 +20,14 @@ const insertSkeleton = (skeletonImageBase64, options) => {
     <html>
     <head>
     <style>
-      // @keyframes flush {
-      //   to {
-      //     opacity: 1;
-      // }
-      //   from {
-      //       opacity: .5;
-      //   }
-      // }
+      @keyframes flush {
+        to {
+          opacity: 1;
+      }
+        from {
+            opacity: .75;
+        }
+      }
     </style>
     </head>
     <body>

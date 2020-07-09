@@ -48,12 +48,12 @@ const getSkeleton = async function(options) {
   const skeletonImageBase64 = await saveScreenShot(page, options);
 
   // Inject the skeleton into the desired page
-  const result = insertSkeleton(skeletonImageBase64, options);
+  // const result = insertSkeleton(skeletonImageBase64, options);
 
   // Close the browser
   await browser.close();
 
-  return result;
+  // return result;
 };
 
 module.exports = getSkeleton;

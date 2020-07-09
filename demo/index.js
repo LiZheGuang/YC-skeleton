@@ -9,23 +9,23 @@ const spliPageName = (url) => {
 const skeletonObj = [
   {
     pageUrl:
-      "http://10.8.16.145:8080/parent-wx-h5Shop-shopShow.html?actId=5e796b01cce13f039dca4ee5",
+      "https://test.yangcong345.com/parent-wx-h5Shop-shopShow.html?actId=5e796b01cce13f039dca4ee5",
     filterClass: [],
   },
   {
     pageUrl:
-      "http://10.8.16.145:8080/parent-wx-h5Shop-list.html?id=5db95977947acb2e6d0c5a2d&fromtype=zheguangtestdddd&code=061qlt7j29zDpB0wE56j2HXe7j2qlt7j&state=parent",
+      "https://test.yangcong345.com/parent-wx-h5Shop-list.html?id=5db95977947acb2e6d0c5a2d&fromtype=zheguangtestdddd&code=061qlt7j29zDpB0wE56j2HXe7j2qlt7j&state=parent",
     filterClass: [],
   },
   {
     pageUrl:
-      "http://10.8.16.145:8080/parent-wx-h5Shop-my.html?id=5db95977947acb2e6d0c5a2d&fromtype=zheguangtestdddd",
+      "https://test.yangcong345.com/parent-wx-h5Shop-my.html?id=5db95977947acb2e6d0c5a2d&fromtype=zheguangtestdddd",
     filterClass: [],
   },
 
   {
     pageUrl:
-      "http://10.8.16.145:8080/parent-wx-h5Shop-orderList.html?id=5db95977947acb2e6d0c5a2d",
+      "https://test.yangcong345.com/parent-wx-h5Shop-orderList.html?id=5db95977947acb2e6d0c5a2d",
     filterClass: [],
   },
   {
@@ -50,7 +50,7 @@ skeletonObj.map((item) => {
     debug: false,
     debugTime: 3000,
     filterClass: item.filterClass,
-    // outputPath:'./ggname'//写入你要生成的目录在哪个项目里
+    outputPath:'/Users/lizheguang/GuangheCode/WX_H5/static/skeleton/'//写入你要生成的目录在哪个项目里
   });
 });
 

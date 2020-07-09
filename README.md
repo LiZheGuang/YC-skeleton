@@ -30,5 +30,24 @@ node index.js //指向骨架屏抓取
 
 ### 参数说明
 
-后期补充
+```
+ getSkeleton({
+    pageName: spliPageName(item.pageUrl), //文件名称
+    pageUrl: `${item.pageUrl}&role=puppeteer`, //生成路径
+    openRepeatList: true, //是否抓取的时候执行第个元素
+    device: "iPhone 6", // 为空则使用默认 PC 页面打开
+    minGrayBlockWidth: 20,  //最小宽度
+    minGrayPseudoWidth: 10, //伪类最小宽度
+    debug: false, //是否开启无头浏览器的debug模式
+    debugTime: 3000, // debug下停止的时间
+    filterClass: item.filterClass, //要过滤的标签
+    outputPath:'' //生成后的目录
+  });
+  
+```
+
+
+#### 再次说明
+
+此项目是基于awesome-skeleton 进行一些简单的源码修改，希望大家还是多多支持原作者。
 
